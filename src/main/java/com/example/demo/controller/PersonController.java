@@ -26,20 +26,24 @@ public class PersonController {
 	public Person getPerson(@RequestParam String firstName) {
 		return personService.getByFirstName(firstName);
 	}
+
 	@RequestMapping("/getAll")
 	public List<Person> getAll(){
 		return personService.getAll();
 	}
+
 	@RequestMapping("/update")
 	public String update(@RequestParam String firstName, @RequestParam String lastName, @RequestParam int age) {
 		Person p = personService.update(firstName, lastName, age);
 		return p.toString();
 	}
+
 	@RequestMapping("/delete")
 	public String delete(@RequestParam String firstName) {
 		personService.delete(firstName);
 		return "Deleted "+firstName;
 	}
+
 	@RequestMapping ("/deleteAll")
 	public String deleteAll() {
 		personService.deleteAll();
